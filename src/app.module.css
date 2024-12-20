@@ -6,53 +6,68 @@
 }
 
 .display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   background-color: #222;
   color: #fff;
-  font-size: 2em;
+  height: 1em;
+  font-size: 1em;
   text-align: right;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+.inputField {
+  display: flex;
   gap: 10px;
+  justify-content: space-between;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.operators {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btnNumber {
+  background-color: #444;
+}
+
+.btnNumber:nth-child(10) {
+  grid-column: span 3;
 }
 
 .btn {
   background-color: #666;
   border: none;
   border-radius: 50%;
+  width: 100%;
+  height: 100%;
   color: #fff;
-  font-size: 1.5em;
-  padding: 15px;
+  font-size: 1em;
   cursor: pointer;
-  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btnOperator {
   background-color: #ff9500;
 }
 
-/* .btn:hover {
+.btnNumber:hover {
   background-color: #555;
 }
 
-.btn-function {
-  background-color: #888;
-}
-
-
-
-.btn-operator:hover {
+.btnOperator:hover {
   background-color: #e08e00;
-} */
-
-.btnNumber {
-  background-color: #444;
 }
-
-/* .btn-zero {
-  grid-column: span 2;
-} */
