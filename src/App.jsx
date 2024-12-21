@@ -6,7 +6,7 @@ export const App = () => {
   const [operand2, setOperand2] = useState('');
   const [operator, setOperator] = useState('');
   const [result, setResult] = useState('');
-  const [displayColor, setDisplayColor] = useState('#222');
+  const [displayColor, setDisplayColor] = useState('displayDefault');
 
   const NUMS = [];
   for (let i = 1; i < 10; i++) {
@@ -25,12 +25,24 @@ export const App = () => {
   const addOperationSum = (num) => {
     if (operand1 && !operand2) {
       setOperator(num);
+    } else if (result) {
+      setOperand1(result);
+      setOperator(num);
+      setOperand2('');
+      setResult('');
+      setDisplayColor('displayDefault');
     }
   };
 
   const addOperationSub = (num) => {
     if (operand1 && !operand2) {
       setOperator(num);
+    } else if (result) {
+      setOperand1(result);
+      setOperator(num);
+      setOperand2('');
+      setResult('');
+      setDisplayColor('displayDefault');
     }
   };
 
@@ -39,6 +51,7 @@ export const App = () => {
     setOperand2('');
     setOperator('');
     setResult('');
+    setDisplayColor('displayDefault');
   };
 
   const getResult = () => {
@@ -57,7 +70,7 @@ export const App = () => {
           break;
       }
       setResult(res.toString());
-      setDisplayColor('#28a745');
+      setDisplayColor('displayResult');
     }
   };
 
@@ -66,7 +79,7 @@ export const App = () => {
   return (
     <>
       <div className={styles.calculator}>
-        <div className={styles.display} style={{ backgroundColor: displayColor }}>
+        <div className={`${styles.display} ${styles[displayColor]}`}>
           {result ? result : summ}
         </div>
 
